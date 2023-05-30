@@ -1,0 +1,21 @@
+# 服务端口
+server:
+  port: 18084
+
+spring:
+  application:
+    name: dubbo-spring-consumer
+    admin:
+      enabled: false
+
+
+dubbo:
+  protocol:
+    name: dubbo # 通讯协议
+    #port: 20880   # dubbo服务提供方的端口，该默认值
+  registry:
+    register: false
+    address: zookeeper://192.168.200.200:2181
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+  consumer:
+    timeout: 3000

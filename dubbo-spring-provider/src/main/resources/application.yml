@@ -1,0 +1,24 @@
+# 服务端口
+server:
+  port: 18081
+# 应用程序名称
+spring:
+  application:
+    name: dubbo-spring-provider
+
+
+# dubbo相关配置
+dubbo:
+  scan:
+    base-packages: com.itheima.service # 服务扫描路径
+  protocol:
+    name: dubbo # 通讯协议
+    port: 20880   # dubbo服务提供方的端口，该默认值  -1代表随机分配
+  registry:
+    address: zookeeper://192.168.200.200:2181  # 注册中心地址
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+  provider:
+    timeout: 6000
+    weight: 100
+    version: v1.0
+    connections: 20
